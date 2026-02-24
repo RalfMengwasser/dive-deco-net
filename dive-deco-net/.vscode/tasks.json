@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build debug",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/samples/ConsoleApp/ConsoleApp.csproj",
+        "-c",
+        "Debug"
+      ],
+      "problemMatcher": ["$msCompile"],
+      "group": "build"
+    },
+    {
+      "label": "build release",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/samples/ConsoleApp/ConsoleApp.csproj",
+        "-c",
+        "Release"
+      ],
+      "problemMatcher": ["$msCompile"],
+      "group": "build"
+    }
+    ,
+    {
+      "label": "build bridge",
+      "command": "cargo",
+      "type": "process",
+      "args": [
+        "build",
+        "--release"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/../dive-deco-bridge"
+      },
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "build debug with bridge",
+      "dependsOn": ["build bridge", "build debug"],
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    },
+    {
+      "label": "build release with bridge",
+      "dependsOn": ["build bridge", "build release"],
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    }
+  ]
+}

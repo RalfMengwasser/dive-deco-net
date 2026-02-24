@@ -1,0 +1,56 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "name": "Debug dive-deco-bridge binary",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=example",
+                    "--package=dive-deco-bridge"
+                ],
+                "filter": {
+                    "name": "example",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "request": "launch",
+            "sourceLanguages": ["rust"]
+        },
+        {
+            "name": "Rust: Build Library Release",
+            "type": "lldb",
+            "request": "launch",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--lib",
+                    "--release",
+                ]
+            },
+            "cwd": "${workspaceFolder}",
+            "sourceLanguages": [
+                "rust"
+            ]
+        },
+        {
+            "name": "Rust: Build Library Debug",
+            "type": "lldb",
+            "request": "launch",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--lib",
+                    "--debug",
+                ]
+            },
+            "cwd": "${workspaceFolder}",
+            "sourceLanguages": [
+                "rust"
+            ]
+        }
+    ]
+}

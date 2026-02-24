@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": ".NET: Launch Debug ConsoleApp",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build debug with bridge",
+      "program": "${workspaceFolder}/samples/ConsoleApp/bin/Debug/net10.0/ConsoleApp.dll",
+      "cwd": "${workspaceFolder}/samples/ConsoleApp",
+      "env": {
+        "PATH": "${env:PATH};${workspaceFolder}/../dive-deco-bridge/target/release"
+      },
+      "stopAtEntry": false,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": ".NET: Launch Release ConsoleApp",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build release with bridge",
+      "program": "${workspaceFolder}/samples/ConsoleApp/bin/Release/net10.0/ConsoleApp.dll",
+      "cwd": "${workspaceFolder}/samples/ConsoleApp",
+      "env": {
+        "PATH": "${env:PATH};${workspaceFolder}/../dive-deco-bridge/target/release"
+      },
+      "stopAtEntry": false,
+      "console": "integratedTerminal"
+    }
+  ]
+}
