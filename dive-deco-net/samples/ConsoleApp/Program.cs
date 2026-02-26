@@ -12,6 +12,8 @@ class Program
 
         // Add breathing gas and record a short segment
         int gasIndex = DiveDeco.AddBreathingSourceOpenCircuit(0.21, 0.0);
+        var gasCfg = DiveDeco.GetBreathingSourceConfig(gasIndex);
+        Console.WriteLine("Added gas config -> " + (gasCfg != null ? JsonConvert.SerializeObject(gasCfg) : "(null)"));
         
         Console.WriteLine($"----- Down to 20 m with 10 m/min on air -----");
         DiveDeco.RecordTravelWithRate(20.0, 10.0, gasIndex);

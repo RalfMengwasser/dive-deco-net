@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
@@ -150,6 +151,19 @@ public enum StopFormatting : byte
     Continuous = 2
 }
 
+[JsonConverter(typeof(StringEnumConverter))]
+public enum DecoStageType : byte
+{
+    /// <summary>Ascent stage.</summary>
+    Ascent = 0,
+
+    /// <summary>Deco stop stage.</summary>
+    DecoStop = 1,
+
+    /// <summary>Gas switch stage.</summary>
+    GasSwitch = 2,
+}
+
 public class DiveConfig
 {
     [JsonProperty("gf")] public int[] Gf { get; set; } = Array.Empty<int>();
@@ -205,8 +219,8 @@ public class DecoStage
 {
     [JsonProperty("duration")] public DurationSeconds? Duration { get; set; }
     [JsonProperty("end_depth")] public DepthMeter? EndDepth { get; set; }
-    [JsonProperty("gas")] public JToken? Gas { get; set; }
-    [JsonProperty("stage_type")] public string? StageType { get; set; }
+    [JsonProperty("gas")] public BreathingSource? Gas { get; set; }
+    [JsonProperty("stage_type")] public DecoStageType? StageType { get; set; }
     [JsonProperty("start_depth")] public DepthMeter? StartDepth { get; set; }
 }
 

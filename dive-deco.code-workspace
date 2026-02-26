@@ -9,5 +9,11 @@
 		{
 			"path": "dive-deco-net"
 		}
-	]
+	],
+	"settings": {
+		"chat.tools.terminal.autoApprove": {
+			"dotnet run": true,
+			"Copy-Item": true
+		}
+	}
 }

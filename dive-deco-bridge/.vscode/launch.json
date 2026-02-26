@@ -44,7 +44,6 @@
                 "args": [
                     "build",
                     "--lib",
-                    "--debug",
                 ]
             },
             "cwd": "${workspaceFolder}",
